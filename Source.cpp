@@ -10,10 +10,11 @@ int most_max, i_max;
 int main() {
 	int s[100][100] = { 0 };
 	int i, j;
-	//テキストファイル読み込み
+	//繝�繧ｭ繧ｹ繝医ヵ繧｡繧､繝ｫ隱ｭ縺ｿ霎ｼ縺ｿ
 	//read
 	FILE *fp;
-	if (fopen_s(&fp, "input.txt", "r") == NULL) {
+	errno_t error;
+	if (error = fopen_s(&fp, "input.txt", "r") == 0) {
 		fscanf_s(fp, "%d", &i_max);
 		for (i = 0; i < i_max; i++) {
 			for (j = 0; j < i + 1; j++) {
@@ -22,7 +23,7 @@ int main() {
 		}
 		fclose(fp);
 	}
-	//読み込み情報表示
+	//隱ｭ縺ｿ霎ｼ縺ｿ諠�蝣ｱ陦ｨ遉ｺ
 	//out
 	/*
 	printf("%d\n", i_max);
